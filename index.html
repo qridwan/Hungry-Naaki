@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry Monster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!----------------------------- Title Bar ------------------------------>
+        <h1>&#x2728;Hungry Naaki!&#x2728;</h1>
+
+          <!----------------------------- Search Area ------------------------------>
+        <div id="searchWrapper">
+            <button class="search-btn" onclick="location.reload()">Refresh</button>
+            <input
+                type="text"
+                name="searchBar"
+                id="searchBar"
+                placeholder="search for Meal"
+            />
+            <button id="search-btn" class="search-btn">Search</button>
+        </div>
+
+          <!----------------------------- Give Detaii Information When Clicked------------------------------>
+        <div id="details"></div>
+
+          <!----------------------------- Show Meal Items ------------------------------>
+        <div id="mealList"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
