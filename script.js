@@ -4,9 +4,10 @@ const searchBtn = document.getElementById("search-btn");
 /////////////SEARCH BUTTON HANDLER//////
 searchBtn.addEventListener("click", () => {
   const searchString = document.getElementById("searchBar").value;
-  if (searchString.length === 1 && typeof(searchString)== String) {
-    getData(searchString);
-    document.getElementById("searchBar").value = "";
+  if (searchString.length == 1) {
+        getData(searchString);
+        document.getElementById("searchBar").value = "";
+    
   } else {
     sorry();
     document.getElementById("searchBar").value = "";
