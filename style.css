@@ -102,9 +102,9 @@ h1 {
     font-size: 15px;
 }
 .search-btn {
-    width: 10%;
-    height: 32px;
-    border-radius: 3px;
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
     background-color: coral;
     border: 1px solid #eaeaea;
     padding: 5px 10px;

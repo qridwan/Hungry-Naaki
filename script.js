@@ -5,11 +5,11 @@ const searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", () => {
   const searchString = document.getElementById("searchBar").value;
   if (searchString.length == 1) {
-        getData(searchString);
-        document.getElementById("searchBar").value = "";
+    getData(searchString);
+    document.getElementById("searchBar").value = "";
     
   } else {
-    sorry();
+    sorry(" Search With Single Letter");
     document.getElementById("searchBar").value = "";
   }
 });
@@ -35,12 +35,13 @@ const getAllMeal = (mealName) => {
 };
 
 ///////GIVE ERROR NOTIFICATION WHILE SOMEONE INPUT 2 OR MORE VALUE//////
-const sorry = () => {
+const sorry = (string) => {
   const div = document.getElementById("mealList");
   const newdiv = document.createElement("div");
   newdiv.className = "sorryClass";
   const mealInfo = `
-    <h1> You Should Search in only SINGLE Letter </h1>`;
+    <h1> ${string} </h1>
+    <button onclick="location.reload()">CLEAR</button>`;
   newdiv.innerHTML = mealInfo;
   div.appendChild(newdiv);
 };
