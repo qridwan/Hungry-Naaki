@@ -44,7 +44,7 @@ const getAllMeal = (mealName) => {
   });
 };
 
-///////GIVE ERROR NOTIFICATION WHILE SOMEONE INPUT 2 OR MORE VALUE//////
+///////MACHINE FOR MAKING ERROR NOTIFICATION//////
 const sorry = (string) => {
   const div = document.getElementById("mealList");
   const newdiv = document.createElement("div");
