@@ -28,19 +28,17 @@ h1 {
     border: 2px solid gray;
     border-radius: 10px;
     display: none;
-    
-    
 }
 #details > img {
     width: 90%;
     max-height: 100%;
     border-radius: 10px;
 }
-/* #details > ul> h4 {
-    text-align: center;
-} */
-#details > ul {
+#details > h4{
     text-align: left;
+}
+.listClass {
+    text-align: left !important;
     list-style: none;
     line-height: 1.2em;
 }
@@ -93,7 +91,7 @@ h1 {
 }
 
 #searchBar {
-    width: 60%;
+    width: 45%;
     height: 40px;
     border-radius: 3px;
     border: 1px solid #eaeaea;
