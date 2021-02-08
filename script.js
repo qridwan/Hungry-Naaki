@@ -16,27 +16,27 @@ searchBtn.addEventListener("click", () => {
 });
 
 //////////MACHINE FOR GETTING SEARCHED MEAL INFO/////
-const getData = (name) => {
+const getData = async(name) => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${name}`;
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
+  const response = await fetch(url)
+  const data  = await response.json()
      if (data.meals === null) {
         sorry('Not Found!')
       }
       else{
-        getAllMeal(data.meals)};
-    })
-};
+        getAllMeal(data.meals)
+      };
+    }
+
 
 //showing all meals, searched
 const getAllMeal = (mealName) => {
   const div = document.getElementById("mealList");
-
+div.innerHTML = ''
   mealName.forEach((obj) => {
     const newdiv = document.createElement("div");
     newdiv.className = "infoClass";
-    const mealInfo = `
+    let mealInfo = `
     <img onclick="getDetails(${obj.idMeal})" src="${obj.strMealThumb}"></img>
     <h3 onclick="getDetails(${obj.idMeal})"> ${obj.strMeal} </h3>`;
     newdiv.innerHTML = mealInfo;
@@ -44,9 +44,58 @@ const getAllMeal = (mealName) => {
   });
 };
 
+
+///////////MACHINE FOR GIVE MORE DETAILS OF SINGLE ITEM MEAL///////
+const getDetails = async(mealId) => {
+ const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+  const res = await fetch(url)  
+  const data =await  res.json();
+  setInfo(data.meals[0]);
+  
+};
+
+///machine for meal details
+const setInfo = (info) => {
+  const information = document.getElementById("details");
+  information.style.display = 'block'
+ 
+  //forloop for getting ingredients array
+  let ingArray = [];
+  for (let i = 1; i < 18; i++) {
+    ingArray.push(info[`strIngredient${i}`]);
+  }
+
+  //Showing meal detail info
+  information.innerHTML = `
+  <img src="${info.strMealThumb}"></img><br>
+<h2>${info.strMeal}</h2>
+<h4>Ingredients Used</h4>
+<div>${getUl(ingArray)}</div>
+<button onclick="displayNone()">CLEAR</button>`;
+};
+
+const displayNone = ()=> {
+  document.getElementById('details').style.display = 'none';
+}
+
+///getiing meal ingredients from ingArray 
+const getUl = (array) => {
+  const ul = document.getElementById("ingredients");
+  for (let i = 0; i < array.length; i++) {
+    let li = document.createElement("li");
+    li.className = "listClass";
+    li.innerText = array[i];
+    ul.appendChild(li); 
+  }
+return ul.innerHTML
+//  return console.log(ul)
+};
+
+
 ///////GIVE ERROR NOTIFICATION WHILE SOMEONE INPUT 2 OR MORE VALUE//////
 const sorry = (string) => {
   const div = document.getElementById("mealList");
+  div.innerHTML = ''
   const newdiv = document.createElement("div");
   newdiv.className = "sorryClass";
   const mealInfo = `
@@ -55,40 +104,4 @@ const sorry = (string) => {
   newdiv.innerHTML = mealInfo;
   div.appendChild(newdiv);
 };
-
-///////////MACHINE FOR GIVE MORE DETAILS OF SINGLE ITEM MEAL///////
-const getDetails = (mealId) => {
-  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
-    .then((res) => res.json())
-    .then((data) => setInfo(data.meals[0]));
-  document.getElementById("details").style.display = "block";
-};
-
-///machine for meal details
-const setInfo = (info) => {
-  const information = document.getElementById("details");
-  let ingArray = [];
-  ////getting meal ingredients
-  for (let i = 1; i < 15; i++) {
-    ingArray.push(info[`strIngredient${i}`]);
-  }
-  const getUl = () => {
-    const ul = document.getElementById("ingredients");
-    for (let i = 0; i < ingArray.length; i++) {
-      let li = document.createElement("li");
-      li.className = "listClass";
-      li.innerText = ingArray[i];
-      ul.appendChild(li);
-    }
-    return ul.innerHTML;
-  };
-
-  //Showing meal detail info
-  information.innerHTML = `<img src="${info.strMealThumb}"></img><br>
-<h2>${info.strMeal}</h2>
-<h4>Ingredients Used</h4>
-${getUl()}
-<button onclick="location.reload()">CLEAR</button>`;
-};
-
 /////////thank you sir!/////////
