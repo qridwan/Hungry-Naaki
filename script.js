@@ -3,6 +3,7 @@ const searchBtn = document.getElementById("search-btn");
 
 /////////////SEARCH BUTTON HANDLER//////
 searchBtn.addEventListener("click", () => {
+  document.getElementById("details").style.display = "none"
   const searchString = document.getElementById("searchBar").value;
   if (searchString.length != 1) {
     sorry(" Search With Single Letter");
@@ -28,7 +29,6 @@ const getData = async(name) => {
       };
     }
 
-
 //showing all meals, searched
 const getAllMeal = (mealName) => {
   const div = document.getElementById("mealList");
@@ -44,7 +44,6 @@ div.innerHTML = ''
   });
 };
 
-
 ///////////MACHINE FOR GIVE MORE DETAILS OF SINGLE ITEM MEAL///////
 const getDetails = async(mealId) => {
  const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
@@ -58,12 +57,6 @@ const getDetails = async(mealId) => {
 const setInfo = (info) => {
   const information = document.getElementById("details");
   information.style.display = 'block'
- 
-  // //forloop for getting ingredients array
-  // let ingArray = [];
-  // for (let i = 1; i < 18; i++) {
-  //   ingArray.push(info[`strIngredient${i}`]);
-  // }
 
   //Showing meal detail info
   information.innerHTML = `
@@ -92,20 +85,6 @@ const setInfo = (info) => {
 const displayNone = ()=> {
   document.getElementById('details').style.display = 'none';
 }
-
-///getiing meal ingredients from ingArray 
-// const getUl = (array) => {
-//   const ul = document.getElementById("ingredients");
-//   for (let i = 0; i < array.length; i++) {
-//     let li = document.createElement("li");
-//     li.className = "listClass";
-//     li.innerText = array[i];
-//     ul.appendChild(li); 
-//   }
-// return ul.innerHTML
-// //  return console.log(ul)
-// };
-
 
 ///////GIVE ERROR NOTIFICATION WHILE SOMEONE INPUT 2 OR MORE VALUE//////
 const sorry = (string) => {
