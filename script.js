@@ -59,18 +59,33 @@ const setInfo = (info) => {
   const information = document.getElementById("details");
   information.style.display = 'block'
  
-  //forloop for getting ingredients array
-  let ingArray = [];
-  for (let i = 1; i < 18; i++) {
-    ingArray.push(info[`strIngredient${i}`]);
-  }
+  // //forloop for getting ingredients array
+  // let ingArray = [];
+  // for (let i = 1; i < 18; i++) {
+  //   ingArray.push(info[`strIngredient${i}`]);
+  // }
 
   //Showing meal detail info
   information.innerHTML = `
   <img src="${info.strMealThumb}"></img><br>
 <h2>${info.strMeal}</h2>
-<h4>Ingredients Used</h4>
-<div>${getUl(ingArray)}</div>
+<ul><h4>Ingredients</h4>
+<li>${info.strIngredient1} </li>
+<li>${info.strIngredient2} </li>
+<li>${info.strIngredient3} </li>
+<li>${info.strIngredient4} </li>
+<li>${info.strIngredient5} </li>
+<li>${info.strIngredient6} </li>
+<li>${info.strIngredient7} </li>
+<li>${info.strIngredient8} </li>
+<li>${info.strIngredient9} </li>
+<li>${info.strIngredient10} </li>
+<li>${info.strIngredient11} </li>
+<li>${info.strIngredient12} </li>
+<li>${info.strIngredient13} </li>
+<li>${info.strIngredient14} </li>
+<li>${info.strIngredient15} </li>
+</ul>
 <button onclick="displayNone()">CLEAR</button>`;
 };
 
@@ -79,17 +94,17 @@ const displayNone = ()=> {
 }
 
 ///getiing meal ingredients from ingArray 
-const getUl = (array) => {
-  const ul = document.getElementById("ingredients");
-  for (let i = 0; i < array.length; i++) {
-    let li = document.createElement("li");
-    li.className = "listClass";
-    li.innerText = array[i];
-    ul.appendChild(li); 
-  }
-return ul.innerHTML
-//  return console.log(ul)
-};
+// const getUl = (array) => {
+//   const ul = document.getElementById("ingredients");
+//   for (let i = 0; i < array.length; i++) {
+//     let li = document.createElement("li");
+//     li.className = "listClass";
+//     li.innerText = array[i];
+//     ul.appendChild(li); 
+//   }
+// return ul.innerHTML
+// //  return console.log(ul)
+// };
 
 
 ///////GIVE ERROR NOTIFICATION WHILE SOMEONE INPUT 2 OR MORE VALUE//////

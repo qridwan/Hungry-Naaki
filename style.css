@@ -37,7 +37,7 @@ h1 {
 #details > h4{
     text-align: left;
 }
-.listClass {
+ul  {
     text-align: left !important;
     list-style: none;
     line-height: 1.2em;
