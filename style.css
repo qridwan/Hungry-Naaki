@@ -1,110 +1,109 @@
 body {
-    font-family: sans-serif;
-    background-color: #ffffffe5;
-
+  font-family: sans-serif;
+  background-color: #ffffffe5;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 h1 {
-    color: black;
-    margin-bottom: 30px;
+  color: black;
+  margin-bottom: 30px;
 }
 .container {
-    padding: 40px;
-    margin: 0 auto;
-    max-width: 1000px;
-    height:auto;
-    text-align: center;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1000px;
+  height: auto;
+  text-align: center;
 }
 
 #details {
-    padding: 5px;
-    margin: 5% auto;
-    max-width: 420px;
-    text-align: center;
-    background-color: lavender;
-    border: 2px solid gray;
-    border-radius: 10px;
-    display: none;
+  padding: 5px;
+  margin: 5% auto;
+  max-width: 420px;
+  text-align: center;
+  background-color: lavender;
+  border: 2px solid gray;
+  border-radius: 10px;
+  display: none;
 }
 #details > img {
-    width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
+  width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
 }
 #details > button {
-    width: 25%;
-    padding: 5px;
-    background-color: white;
-    border-radius: 10px;
+  width: 25%;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
 }
-#details >ul>  h4{
-    text-align: left;
-    font-size: 20px;
+#details > ul > h4 {
+  text-align: left;
+  font-size: 20px;
 }
-ul  {
-    text-align: left !important;
-    list-style: none;
-    line-height: 1.2em;
-    font-size: 14px;
+ul {
+  text-align: left !important;
+  list-style: none;
+  line-height: 1.2em;
+  font-size: 14px;
 }
 
 #mealList {
-    padding-inline-start: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
 }
 
-.soryyClass{
-    list-style-type: none;
-    background-color: #a80808 !important;
-    color: #eaeaea;
-    border-radius: 3px;
-    padding: 10px 20px;
+.soryyClass {
+  list-style-type: none;
+  background-color: #a80808 !important;
+  color: #eaeaea;
+  border-radius: 3px;
+  padding: 10px 20px;
 }
 
 .infoClass {
-    background-color: #eaeaea;
-    color: black;
-    border-radius: 3px;
-    padding: 10px 20px;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas:
-        'name image'
-        'house image';
-    text-align: left;
-    cursor: pointer;
+  background-color: #eaeaea;
+  color: black;
+  border-radius: 3px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "name image"
+    "house image";
+  text-align: left;
+  cursor: pointer;
 }
 
 .infoClass > h2 {
-    grid-area: name;
-    margin-bottom: 0px;
+  grid-area: name;
+  margin-bottom: 0px;
 }
 
 .infoClass > img {
-    max-height: 100px;
-    grid-area: image;
-    border-radius: 5px;
+  max-height: 100px;
+  grid-area: image;
+  border-radius: 5px;
 }
 
 #searchBar {
-    width: 45%;
-    height: 40px;
-    border-radius: 3px;
-    border: 1px solid #eaeaea;
-    padding: 5px 20px;
-    margin-bottom: 2%;
-    font-size: 15px;
+  width: 45%;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  padding: 5px 20px;
+  margin-bottom: 2%;
+  font-size: 15px;
 }
 .search-btn {
-    width: auto;
-    height: 40px;
-    border-radius: 5px;
-    background-color: coral;
-    border: 1px solid #eaeaea;
-    padding: 5px 10px;
+  width: auto;
+  height: 40px;
+  border-radius: 5px;
+  background-color: coral;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
 }

@@ -3,36 +3,33 @@ const searchBtn = document.getElementById("search-btn");
 
 /////////////SEARCH BUTTON HANDLER//////
 searchBtn.addEventListener("click", () => {
-  document.getElementById("details").style.display = "none"
+  document.getElementById("details").style.display = "none";
   const searchString = document.getElementById("searchBar").value;
   if (searchString.length != 1) {
     sorry(" Search With Single Letter");
     document.getElementById("searchBar").value = "";
-  } 
-
-  else {
+  } else {
     getData(searchString);
     document.getElementById("searchBar").value = "";
   }
 });
 
 //////////MACHINE FOR GETTING SEARCHED MEAL INFO/////
-const getData = async(name) => {
+const getData = async (name) => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${name}`;
-  const response = await fetch(url)
-  const data  = await response.json()
-     if (data.meals === null) {
-        sorry('Not Found!')
-      }
-      else{
-        getAllMeal(data.meals)
-      };
-    }
+  const response = await fetch(url);
+  const data = await response.json();
+  if (data.meals === null) {
+    sorry("Not Found!");
+  } else {
+    getAllMeal(data.meals);
+  }
+};
 
 //showing all meals, searched
 const getAllMeal = (mealName) => {
   const div = document.getElementById("mealList");
-div.innerHTML = ''
+  div.innerHTML = "";
   mealName.forEach((obj) => {
     const newdiv = document.createElement("div");
     newdiv.className = "infoClass";
@@ -45,18 +42,17 @@ div.innerHTML = ''
 };
 
 ///////////MACHINE FOR GIVE MORE DETAILS OF SINGLE ITEM MEAL///////
-const getDetails = async(mealId) => {
- const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
-  const res = await fetch(url)  
-  const data =await  res.json();
+const getDetails = async (mealId) => {
+  const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+  const res = await fetch(url);
+  const data = await res.json();
   setInfo(data.meals[0]);
-  
 };
 
 ///machine for meal details
 const setInfo = (info) => {
   const information = document.getElementById("details");
-  information.style.display = 'block'
+  information.style.display = "block";
 
   //Showing meal detail info
   information.innerHTML = `
@@ -82,14 +78,14 @@ const setInfo = (info) => {
 <button onclick="displayNone()">CLEAR</button>`;
 };
 
-const displayNone = ()=> {
-  document.getElementById('details').style.display = 'none';
-}
+const displayNone = () => {
+  document.getElementById("details").style.display = "none";
+};
 
 ///////GIVE ERROR NOTIFICATION WHILE SOMEONE INPUT 2 OR MORE VALUE//////
 const sorry = (string) => {
   const div = document.getElementById("mealList");
-  div.innerHTML = ''
+  div.innerHTML = "";
   const newdiv = document.createElement("div");
   newdiv.className = "sorryClass";
   const mealInfo = `
